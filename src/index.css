@@ -44,32 +44,6 @@ body {
   overflow: hidden;
 }
 
-.hero-section__divider {
-  position: absolute;
-  bottom: 0;
-  left: 8%;
-  width: 84%;
-  height: 3px;
-  background: linear-gradient(90deg, rgba(255, 90, 72, 0) 0%, #ff4d4d 15%, #ff4d4d 85%, rgba(255, 90, 72, 0) 100%);
-  box-shadow: 0 0 18px rgba(255, 77, 77, 0.35);
-  border-radius: 999px;
-  z-index: 3;
-  opacity: 0;
-  transform: translateY(1em);
-  animation: hero-divider-in 1.4s ease-out 2.2s forwards;
-}
-
-@keyframes hero-divider-in {
-  0% {
-    opacity: 0;
-    transform: translateY(1em);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 h2 {
   font-family: 'Hubot Sans', sans-serif;
 }
@@ -162,103 +136,6 @@ h2 a {
   100% {
     filter: hue-rotate(-380deg);
   }
-}
-
-button.contact-btn {
-  position: absolute;
-  left: min(46em, 60vw);
-  right: 0;
-  margin: 0 auto;
-  width: 8em;
-  height: 2.4em;
-  cursor: pointer;
-  border-radius: 20em;
-  border: none;
-  transition: background 0.5s, transform 0.5s;
-  border: 1px solid #c2ccff33;
-  opacity: 1;
-  padding-top: 0.3em;
-  background: #121521;
-  color: #9dc3f7;
-  white-space: nowrap;
-}
-
-button.contact-btn::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 20em;
-  width: 100%;
-  height: 100%;
-  background: #c2ccff91 radial-gradient(farthest-side at 50% 100%, #c2ccff, transparent);
-  opacity: 0.1;
-  transition: all 0.4s ease-in-out;
-}
-
-button.contact-btn:hover::before {
-  background: #c2ccff1e radial-gradient(farthest-side at 50% 100%, #c2ccff, transparent);
-  opacity: 0.3;
-}
-
-.contact-btn .glow {
-  --border-width: 1px;
-  --loop-cycle: 24s;
-  position: absolute;
-  inset: calc(var(--border-width) * -1);
-  border-radius: 50px;
-  border: var(--border-width) solid transparent;
-  -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-  -webkit-mask-clip: padding-box, border-box;
-  mask-clip: padding-box, border-box;
-  -webkit-mask-composite: source-in, xor;
-  mask-composite: intersect;
-  pointer-events: none;
-}
-
-button.contact-btn:hover .glow {
-  --loop-cycle: 2s;
-}
-
-.contact-btn .glow::after,
-.contact-btn .glow::before {
-  content: '';
-  height: 100%;
-  offset-anchor: 100% 50%;
-  background: radial-gradient(circle at 50% 50%, hsla(0, 0%, 100%, 0.75), transparent 50%),
-    radial-gradient(circle at 50% 50%, #c2ccff 50%, transparent);
-  opacity: 0.4;
-  offset-path: rect(0 100% 100% 0 round 33px);
-  position: absolute;
-  display: inline-block;
-  animation: loop var(--loop-cycle) linear infinite;
-  aspect-ratio: 1 / 1;
-  transition: opacity 1s ease-in-out;
-}
-
-.contact-btn .glow::before {
-  animation-delay: calc(var(--loop-cycle) / -2);
-}
-
-@keyframes loop {
-  100% {
-    offset-distance: 100%;
-  }
-}
-
-.contact-btn-content {
-  background: linear-gradient(0deg, #d8ecf8, #98c0ef);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 1.2em;
-  line-height: 142%;
-}
-
-button.contact-btn:hover .glow::after,
-button.contact-btn:hover .glow::before {
-  opacity: 0.6;
 }
 
 .header .spotlight {
@@ -391,51 +268,6 @@ p {
   }
 }
 
-.footer {
-  position: relative;
-  z-index: 2;
-  padding: 6em 2em 3em;
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(180deg, rgba(5, 6, 15, 0) 0%, rgba(5, 6, 15, 0.75) 65%, #05060f 100%);
-  color: #bad6f7;
-  font-size: 0.9em;
-}
-
-.footer__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8em;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-
-.footer__link {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 600;
-  position: relative;
-}
-
-.footer__link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -0.2em;
-  width: 100%;
-  height: 1px;
-  background: rgba(186, 214, 247, 0.4);
-  transform-origin: left;
-  transform: scaleX(0);
-  transition: transform 200ms ease-in-out;
-}
-
-.footer__link:hover::after,
-.footer__link:focus-visible::after {
-  transform: scaleX(1);
-}
-
 .heroT > h2 {
   position: absolute;
   left: 0;
@@ -486,6 +318,9 @@ p {
 
 .heroP {
   font-size: 1.2em;
+  padding: 5rem;
+  margin-top: 2.5rem;
+  line-height: 1.65;
   position: absolute;
   left: 0;
   right: 0;
@@ -580,236 +415,20 @@ p {
   translate: 5em 0;
 }
 
-.hero-accents {
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  --hero-accents-clr: rgba(186, 215, 247, 0.18);
-}
 
-.hero-accents__group {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  height: 100%;
-  width: 100%;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--hero-accents-clr), transparent);
-  opacity: 0;
-  scale: 0;
-  animation: accentload 2s ease-out 2.4s forwards;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(1) {
-  top: 6em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(2) {
-  top: 11em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(3) {
-  top: 16em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(4) {
-  top: 24em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(5) {
-  top: 29em;
-}
-
-.hero-accents__group--vertical > .hero-accents__stripe--vertical {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-  width: 1px;
-  height: 100%;
-  background: var(--hero-accents-clr);
-  opacity: 0;
-  scale: 0;
-  animation: accentload 2s ease-out 2s forwards;
-}
-
-.hero-accents__group--vertical > .hero-accents__stripe--vertical:nth-child(1) {
-  left: 24em;
-}
-
-.hero-accents__group--vertical > .hero-accents__stripe--vertical:nth-child(2) {
-  left: 34em;
-}
-
-.hero-accents__group--vertical > .hero-accents__stripe--vertical:nth-child(3) {
-  right: 24em;
-}
-
-.hero-accents__group--vertical > .hero-accents__stripe--vertical:nth-child(4) {
-  right: 34em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal::before,
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal::after {
-  content: '';
-  display: none;
-  position: absolute;
-  width: 0.2em;
-  height: 0.2em;
-  border-radius: 1em;
-  background: #9dc3f7;
-  left: 0;
-  right: 0;
-  margin: auto;
-  translate: 0 -1px;
-  opacity: 0;
-  scale: 0;
-  animation: accentload 2s ease-out 4.4s forwards;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(3)::before {
-  display: block;
-  left: 24em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(3)::after {
-  display: block;
-  right: 24em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(4)::before {
-  display: block;
-  left: 24em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(4)::after {
-  display: block;
-  right: 24em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(5)::before {
-  display: block;
-  left: 24em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(5)::after {
-  display: block;
-  right: 24em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(2)::before,
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(2)::after {
-  display: block;
-  width: 5em;
-  height: 1px;
-  border-radius: 0;
-  opacity: 0.12;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(2)::before {
-  right: 24em;
-  rotate: 45deg;
-  translate: -2.5em 2.5em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(2)::after {
-  right: 24em;
-  rotate: -45deg;
-  translate: -2.5em 2.5em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(1)::before,
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(1)::after {
-  display: block;
-  width: 5em;
-  height: 1px;
-  border-radius: 0;
-  opacity: 0.12;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(1)::before {
-  left: 24em;
-  rotate: 45deg;
-  translate: 2.5em 7.5em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(1)::after {
-  left: 24em;
-  rotate: -45deg;
-  translate: 2.5em 7.5em;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(2)::before,
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(2)::after {
-  opacity: 0;
-  scale: 0;
-  animation: accentload2 2s ease-out 2.4s forwards;
-}
-
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(1)::before,
-.hero-accents__group--horizontal > .hero-accents__stripe--horizontal:nth-child(1)::after {
-  opacity: 0;
-  scale: 0;
-  animation: accentload3 2s ease-out 2.4s forwards;
-}
-
-@keyframes accentload {
-  0% {
-    opacity: 0;
-    scale: 0;
+@media (max-width: 1024px) {
+  body {
+    font-size: 14px;
   }
-  100% {
-    opacity: 1;
-    scale: 1;
-  }
-}
 
-@keyframes accentload2 {
-  0% {
-    opacity: 0;
-    scale: 0;
-    transform: rotate(360deg);
+  .hero {
+    top: 14em;
   }
-  50% {
-    scale: 0;
-  }
-  100% {
-    opacity: 0.12;
-    scale: 1;
-    transform: rotate(0deg);
-  }
-}
 
-@keyframes accentload3 {
-  0% {
-    opacity: 0;
-    scale: 0;
-    transform: rotate(-360deg);
-  }
-  50% {
-    scale: 0;
-  }
-  100% {
-    opacity: 0.12;
-    scale: 1;
-    transform: rotate(0deg);
+  .heroP {
+    top: 21em;
+    max-width: 34rem;
+    padding: 0 1rem;
   }
 }
 
@@ -822,28 +441,86 @@ p {
     padding: 1.5em;
   }
 
-  button.contact-btn {
-    left: auto;
-    right: 1.5em;
+  .hero-section {
+    min-height: auto;
+    padding: 8em 1.5rem 6em;
   }
 
   .hero {
-    top: 12em;
+    position: static;
+    top: auto;
+    height: auto;
+    max-height: none;
+    padding: 0;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .heroT {
+    position: static;
+    translate: none;
+    height: auto;
+    padding-top: 0;
+    animation: none;
+    margin-bottom: 1.5rem;
+    opacity: 1;
   }
 
   .heroT > h2 {
-    font-size: 4.5em;
+    position: static;
+    font-size: clamp(2.8rem, 9vw, 3.8rem);
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .heroSubP {
+    position: static;
+    margin: 0 auto 1rem;
+    translate: none;
+    animation: none;
+    opacity: 1;
+    text-align: center;
+  }
+
+  .heroSubP p {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .heroSubP p::before,
+  .heroSubP p::after {
+    position: static;
+    display: block;
+    flex: 0 0 3em;
+    width: 3em;
+    height: 1px;
+    translate: 0;
+    opacity: 0.24;
+    animation: none;
   }
 
   .heroP {
-    top: 18em;
-    font-size: 1.1em;
+    position: static;
+    margin: 1.5rem auto 0;
+    top: auto;
+    translate: none;
+    animation: none;
+    font-size: 1rem;
+    max-width: 28rem;
+    padding: 0 1rem;
+    line-height: 1.6;
+    opacity: 1;
   }
 
   .content-section {
-    padding: 14em 1.5rem 10em 1.5rem;
+    padding: 10em 1.5rem 8em;
   }
 
+  #particleCanvas {
+    height: 120vh;
+  }
 }
 
 #particles-js {
@@ -851,4 +528,29 @@ p {
     width: 100%;
     height: 500px;
     background: linear-gradient(to left,#6442ff 0%,#9012fe 100%);
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-section {
+    padding: 9rem 0 0;
+  }
+
+  .heroSubP p {
+    font-size: 1.6em;
+    letter-spacing: 0.08em;
+    padding: 1rem;
+  }
+
+  .heroP {
+    font-size: 0.95em;
+    padding: 0;
+    line-height: 1.6;
+  }
+
 }
