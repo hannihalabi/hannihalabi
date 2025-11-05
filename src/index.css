@@ -38,10 +38,20 @@ body {
 }
 
 .hero-section {
+  --hero-gap: 3.2rem;
+  --hero-padding-top: clamp(8rem, 22vh, 12rem);
+  --hero-padding-bottom: 6rem;
+  --hero-text-padding: 0 4rem;
   position: relative;
-  min-height: max(42em, 0vh);
+  min-height: max(42em, 80vh);
   width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hero-gap);
+  padding: var(--hero-padding-top) 1.5rem var(--hero-padding-bottom);
 }
 
 h2 {
@@ -240,21 +250,17 @@ p {
 
 .hero {
   width: 100%;
-  height: 100%;
-  max-height: 140px;
-  position: absolute;
-  top: 16em;
+  display: flex;
+  justify-content: center;
   z-index: 2;
 }
 
 .heroT {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  height: 20em;
-  padding-top: 2em;
-  translate: 0 -1.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0;
+  translate: 0;
   opacity: 0;
   animation: load 2s ease-in-out 0.6s forwards;
 }
@@ -269,11 +275,9 @@ p {
 }
 
 .heroT > h2 {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
+  margin: 0;
   width: fit-content;
+  text-align: center;
   font-size: 7em;
   font-weight: 600;
   color: #9dc3f7;
@@ -318,16 +322,11 @@ p {
 
 .heroP {
   font-size: 1.2em;
-  padding: 5rem;
-  margin-top: 2.5rem;
+  padding: var(--hero-text-padding);
+  margin: 0;
   line-height: 1.65;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 20.6em;
-  margin: auto;
-  height: fit-content;
-  width: fit-content;
+  position: relative;
+  max-width: 42rem;
   text-align: center;
   opacity: 0;
   translate: 0 1em;
@@ -341,6 +340,67 @@ p {
   z-index: 2;
 }
 
+.hero-cta {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  opacity: 0;
+  translate: 0 1em;
+  animation: load 2s ease-out 2.6s forwards, up 1.4s ease-out 2.6s forwards;
+  z-index: 2;
+}
+
+.cta-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85em 2.8em;
+  border-radius: 30em;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0b131f;
+  background: linear-gradient(135deg, rgba(216, 236, 248, 0.85), rgba(152, 192, 239, 0.75));
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(152, 192, 239, 0.35);
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid rgba(216, 236, 248, 0.65);
+  outline-offset: 4px;
+}
+
+.cta-button__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55), transparent 70%);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.cta-button:hover .cta-button__glow,
+.cta-button:focus-visible .cta-button__glow {
+  opacity: 1;
+}
+
+.cta-button__label {
+  position: relative;
+  font-weight: 600;
+  color: inherit;
+}
+
 @keyframes up {
   100% {
     translate: 0;
@@ -348,12 +408,9 @@ p {
 }
 
 .heroSubP {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 13em;
-  margin: auto;
-  height: fit-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
   opacity: 0;
   translate: 0 -1em;
   animation: load3 2s ease-in 0s forwards, up 1.4s ease-out 0s forwards;
@@ -421,14 +478,15 @@ p {
     font-size: 14px;
   }
 
-  .hero {
-    top: 14em;
+  .hero-section {
+    --hero-gap: 0rem;
+    --hero-padding-top: clamp(1rem, 10vh, 2rem);
+    --hero-text-padding: 0 3rem;
   }
 
   .heroP {
-    top: 21em;
-    max-width: 34rem;
-    padding: 0 1rem;
+    max-width: 1rem;
+    padding: 0 2rem;
   }
 }
 
@@ -444,6 +502,8 @@ p {
   .hero-section {
     min-height: auto;
     padding: 8em 1.5rem 6em;
+    --hero-gap: 2rem;
+    --hero-text-padding: 0 1.5rem;
   }
 
   .hero {
@@ -475,7 +535,7 @@ p {
 
   .heroSubP {
     position: static;
-    margin: 0 auto 1rem;
+    margin: 0 auto;
     translate: none;
     animation: none;
     opacity: 1;
@@ -503,7 +563,7 @@ p {
 
   .heroP {
     position: static;
-    margin: 1.5rem auto 0;
+    margin: 0 auto;
     top: auto;
     translate: none;
     animation: none;
@@ -512,6 +572,14 @@ p {
     padding: 0 1rem;
     line-height: 1.6;
     opacity: 1;
+  }
+
+  .hero-cta {
+    position: static;
+    translate: none;
+    animation: none;
+    opacity: 1;
+    margin: 0 auto;
   }
 
   .content-section {
@@ -539,6 +607,8 @@ p {
 
   .hero-section {
     padding: 9rem 0 0;
+    --hero-gap: 1.6rem;
+    --hero-text-padding: 0 1rem;
   }
 
   .heroSubP p {
@@ -551,6 +621,20 @@ p {
     font-size: 0.95em;
     padding: 0;
     line-height: 1.6;
+    margin: 0 auto;
+  }
+
+  .hero-cta {
+    width: 100%;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 18rem;
+    margin: 0 auto;
   }
 
 }

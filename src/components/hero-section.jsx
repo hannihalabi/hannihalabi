@@ -1,3 +1,5 @@
+import CTAButton from './cta-button.jsx';
+
 export default function HeroSection() {
   return (
     <section className="hero-section">
@@ -13,6 +15,9 @@ export default function HeroSection() {
         Learn to take back the control of your time <br />
         Master the art of Artificial Intelligence.
       </p>
+      <div className="hero-cta">
+        <CTAButton label="Get in touch" />
+      </div>
     </section>
   );
 }
