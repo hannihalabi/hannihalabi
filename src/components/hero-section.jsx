@@ -9,15 +9,15 @@ export default function HeroSection() {
       <div className="hero">
         <div className="heroT">
           <h2>Hanni Halabi</h2>
+          <div className="hero-cta">
+            <CTAButton label="Get in touch" />
+          </div>
         </div>
       </div>
       <p className="heroP">
-        Learn to take back the control of your time <br />
+        Create by discovery <br />
         Master the art of Artificial Intelligence.
       </p>
-      <div className="hero-cta">
-        <CTAButton label="Get in touch" />
-      </div>
     </section>
   );
 }
